@@ -1,0 +1,58 @@
+#app {
+	position: absolute;
+	text-align: center;
+	overflow-y: scroll;
+	width: 70%; height: 50%; top: 50%; left: 50%; transform: translate(-50%, -50%);
+	background-color: rgb(255, 255, 255);
+	font-family: Yu Gothic UI Semilight;
+ 	border: 2px solid #000;
+}
+
+#menu_app_open	{
+	position: absolute;
+	display: flex;
+	top: 0;
+	left: 10px;
+	font-size: 20px;
+	z-index: 1;
+}
+
+#menu_app_open:hover {
+	background-color: rgba(255, 255, 255, 0.2);
+	border-radius: 15%;
+	height: 30px;
+	z-index: 1;
+}
+
+#bar_app_open	{
+	position: absolute;
+	display: flex;
+	bottom: 0;
+	left: 10px;
+	font-size: 30px;
+	z-index: 1;
+}
+
+#bar_app_open:hover {
+	background-color: rgba(255, 255, 255, 0.2);
+	border-radius: 15%;
+	z-index: 1;
+}
+
+#applist_setting_open {
+	position: absolute;
+	display: flex;
+	top: 0;
+	left: 15px;
+	font-size: 48px;
+	z-index: 1;
+}
+
+#applist_search_open {
+	position: absolute;
+	display: flex;
+	top: 7px;
+	left: 50px;
+	font-size: 36px;
+	z-index: 1;
+}

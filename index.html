@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Browser-OS-Reborn</title>
+	<!--js-->
+	<script type="text/javascript" src="script.js"></script>
+	<script type="text/javascript" src="applist/applist.js"></script>
+	<script type="text/javascript" src="search/search.js"></script>
+	<script type="text/javascript" src="music/music.js"></script>
+	<script type="text/javascript" src="text/text.js"></script>
+	<script type="text/javascript" src="setting/setting.js"></script>
+	<!--css-->
+	<link href="style.css" rel="stylesheet" type="text/css" media="all">
+	<link href="applist/applist.css" rel="stylesheet" type="text/css" media="all">
+	<link href="search/search.css" rel="stylesheet" type="text/css" media="all">
+	<link href="music/music.css" rel="stylesheet" type="text/css" media="all">
+	<link href="text/text.css" rel="stylesheet" type="text/css" media="all">
+	<link href="setting/setting.css" rel="stylesheet" type="text/css" media="all">
+</head>
+<body style="overflow: hidden;">
+<!--bar-->
+<div id="menu_color"><div id="menu" style="color: rgb(255, 255, 255); background-color: rgba(0, 0, 0, 0.7);"></div></div>
+<div id="bar_color"><div id="bar" style="background-color: rgba(0, 0, 0, 0.7);"></div></div>
+
+<div id="menu_app_visual"><div id="menu_app_open" onclick="app_open()" style="color: rgb(255, 255, 255);">🌐</div></div>
+<div id="menu_search_visual"><div id="menu_search_open" onclick="search_open()" style="color: rgb(255, 255, 255);">🔍</div></div>
+<div id="menu_music_visual"><div id="menu_music_open" onclick="music_open()" style="color: rgb(255, 255, 255);">♬</div></div>
+<div id="menu_text_visual"><div id="menu_text_open" onclick="text_open()" style="color: rgb(255, 255, 255);">📝</div></div>
+<div id="menu_setting_visual"><div id="menu_setting_open" onclick="setting_open()" style="color: rgb(255, 255, 255);">⚙</div></div>
+
+<div id="bar_app_visual"><div id="bar_app_open" onclick="app_open()" style="color: rgb(255, 255, 255);">🌐</div></div>
+<div id="bar_search_visual"><div id="bar_search_open" onclick="search_open()" style="color: rgb(255, 255, 255);">🔍</div></div>
+<div id="bar_music_visual"><div id="bar_music_open" onclick="music_open()" style="color: rgb(255, 255, 255);">♬</div></div>
+<div id="bar_text_visual"><div id="bar_text_open" onclick="text_open()" style="color: rgb(255, 255, 255);">📝</div></div>
+<div id="bar_setting_visual"><div id="bar_setting_open" onclick="setting_open()" style="color: rgb(255, 255, 255);">⚙</div></div>
+
+<div id="app" hidden>
+	<form method='get' action='https://www.google.com/search?' target='_blank'>
+		<div style='margin-top: 30px; border:none; text-align:center;'>
+		<input type="search" name='q' id='searchcut' value='' placeholder='Google で検索' style='height: 30px; width:80%; border-radius: 5px; border: 1px solid #999; outline: none; font-size: 14px;'><input type='submit' onclick='searchcuton()' value='🔍' style="height: 30px; width: 30px;">
+		<input type='hidden' name='sites' value=''><input type='hidden' name='kl' value='jp-jp'></div></form>
+	<div id="setting_visual"><div id="applist_setting_open" onclick="setting_open()" style="color: rgb(0, 0, 0);">⚙</div></div>
+	<div id="search_visual"><div id="applist_search_open" onclick="search_open()" style="color: rgb(255, 255, 255);">🔍</div></div>
+
+</div>
+
+<div id="search" hidden>
+	<div id="search_close_color"><div class="search_close_button" onclick="search_close_button()" style="color: rgb(0, 0, 0);">☓</div></div>
+	<br><div id="search_scale_color"><div class="search_scale_button" onclick="search_scale_button()" style="color: rgb(0, 0, 0);">☐</div></div>
+	<br><div id="search_hidden_color"><div class="search_hidden_button" onclick="search_hidden_button()" style="color: rgb(0, 0, 0);">－</div></div>
+<form method='get' action='https://www.google.com/search?' target='_blank'>
+<div style='border:none; text-align:center;'><a href='https://www.google.com/' target='_blank'>
+<img src='https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png' alt='Google' style='border:none;margin-top:100px;' width='250px' height='82px'></a>
+<div style='margin-top:10px;'><input type="search" name='q' id='searchcut' value='' placeholder='Google で検索' style='height: 35px; width:75%; border-radius: 30px; border: 1px solid #999; outline: none; font-size: 14px;'><div style='margin-top:10px;'><input type='submit' onclick='searchcuton()' value='Googleで検索' style="height: 30px; width: 120px;">
+<input type='hidden' name='sites' value=''><input type='hidden' name='kl' value='jp-jp'></div></div></div></form>
+Browser-OSによる成果物
+</div>
+
+<div id="music" hidden>
+	<div id="music_close_color"><div class="music_close_button" onclick="music_close_button()" style="color: rgb(0, 0, 0);">☓</div></div>
+	<br><div id="music_scale_color"><div class="music_scale_button" onclick="music_scale_button()" style="color: rgb(0, 0, 0);">☐</div></div>
+	<br><div id="music_hidden_color"><div class="music_hidden_button" onclick="music_hidden_button()" style="color: rgb(0, 0, 0);">－</div></div>
+
+	<form name="myform">
+		<input id="myfile" type="file">
+		<div id="bg"></div>
+	</form>
+
+	  <script>
+var obj1 = document.getElementById("myfile");
+
+obj1.addEventListener("change", function(evt){
+  var file = evt.target.files;
+  var reader = new FileReader();
+  
+  //dataURL形式でファイルを読み込む
+  reader.readAsDataURL(file[0]);
+  
+  //ファイルの読込が終了した時の処理
+  reader.onload = function(){
+    var dataUrl = reader.result;
+
+    //読み込んだ画像とdataURLを書き出す
+    document.getElementById("bg").innerHTML = "<audio controls><source src='" + dataUrl + "' name='output'></audio>";
+  }
+},false);
+  </script>
+</div>
+
+<div id="text" hidden>
+	<div id="text_close_color"><div class="text_close_button" onclick="text_close_button()" style="color: rgb(0, 0, 0);">☓</div></div>
+	<br><div id="text_scale_color"><div class="text_scale_button" onclick="text_scale_button()" style="color: rgb(0, 0, 0);">☐</div></div>
+	<br><div id="text_hidden_color"><div class="text_hidden_button" onclick="text_hidden_button()" style="color: rgb(0, 0, 0);">－</div></div>
+
+	<details style="z-index: 2;"><summary>ファイル</summary>新規作成<br><div onclick="textdl()">ダウンロード</div><br><div onclick="textcl()">クラウドに保存</div></details>
+	tab1 <button onclick="newtab()">+</button>
+	<textarea style="position: absolute;top: 50px; left: 20px; width: 94%; height: 85%;"></textarea>
+	</div>
+
+<div id="setting" hidden>
+	<div id="setting_close_color"><div class="setting_close_button" onclick="setting_close_button()" style="color: rgb(0, 0, 0);">☓</div></div>
+	<br><div id="setting_scale_color"><div class="setting_scale_button" onclick="setting_scale_button()" style="color: rgb(0, 0, 0);">☐</div></div>
+	<br><div id="setting_hidden_color"><div class="setting_hidden_button" onclick="setting_hidden_button()" style="color: rgb(0, 0, 0);">－</div></div>
+	<input type="search" name='q' id='searchcut' value='' placeholder='設定内検索' style='height: 30px; width:30%; border-radius: 5px; border: 1px solid #999; outline: none; font-size: 14px;'><input type='submit' onclick='searchcuton()' value='🔍' style="height: 30px; width: 30px;">
+	<div id="theme_showhidden"><div onclick="theme_setting()">テーマ・デザイン設定</div></div>
+	<div id="theme_setting" hidden>
+	<br>背景色
+	<button id="background_black" onclick="background_black()">黒</button>
+	<button id="background_white" onclick="background_white()">白</button>
+	<br>ウィンドウ
+	<button id="edge_window" onclick="edge_window()">角ウィンドウ</button>
+	<button id="radius_window" onclick="radius_window()">角丸ウィンドウ</button>
+	<br>ウィンドウ閉じる・最大化・最小化
+	<br><button id="hidden" onclick="hidden()">非表示</button>
+	<br><button id="rightlength" onclick="rightlength()">右縦</button>
+	<button id="leftlength" onclick="leftlength()">左縦</button>
+	<br><button id="rightside" onclick="rightside()">右横</button>
+	<button id="leftside" onclick="leftside()">左横</button>
+	<br>上下バー設定
+	<br>上
+	<button id="edge_menu" onclick="edge_menu()">角バー</button>
+	<button id="radius_menu" onclick="radius_menu()">角丸バー</button>
+	<br>下
+	<button id="edge_bar" onclick="edge_bar()">角バー</button>
+	<button id="radius_bar" onclick="radius_bar()">角丸バー</button>
+	<br>上下バー表示アプリ設定
+	<br>上バー
+	<br>設定<input id="setting_menu" type="checkbox">アプリ一覧<input id="allapp_menu" type="checkbox">
+	<br>下バー
+	<br>設定<input id="setting_bar" type="checkbox">アプリ一覧<input id="allapp_bar" type="checkbox">
+	<br>下バー詳細設定
+	<br>バーの複数表示<label id="bar_1_radio"><input name="bar_radio" type="radio" checked>一列</label><label id="bar_2_radio"><input name="bar_radio" type="radio">二列</label><label id="bar_3_radio"><input name="bar_radio" type="radio">三列</label>
+	<br><input type="checkbox">下バーを自動的に非表示にする
+	<br><input type="checkbox">二、三列目下バーの表示方法 常時表示 ボタン 選んで表示
+</div>
+</div>
+
+</body>
+</html>
